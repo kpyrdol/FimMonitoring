@@ -1,0 +1,75 @@
+﻿@using FIMMonitoring.Domain.Enum
+@using PagedList.Mvc
+@model PagedList.IPagedList<FilesListItemViewModel>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th style="width: 180px">@Html.DisplayNameFor(e => e.FirstOrDefault().ErrorDate)</th>
+        <th style="width: 100px">@Html.DisplayNameFor(e => e.FirstOrDefault().ErrorLevel)</th>
+        <th style="width: 250px">@Html.DisplayNameFor(e => e.FirstOrDefault().SourceName)</th>
+        <th style="width: 180px">@Html.DisplayNameFor(e => e.FirstOrDefault().ProcessedDate)</th>
+        <th style="width: 180px">@Html.DisplayNameFor(e => e.FirstOrDefault().ErrorSendDateTime)</th>
+        <th style="width: 230px">@Html.DisplayNameFor(e => e.FirstOrDefault().ErrorType)</th>
+        <th style="width: 80px"></th>
+        <th style="width: 80px"></th>
+        <th style="width: 80px"></th>
+        <th style="width: 80px"></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            
+            <tr class="@item.GetCssClass()">
+                <td>@item.ErrorDate.AsDate(true)</td>
+                <td>@item.ErrorLevel.ToLabel()</td>
+                <td>@item.SourceName</td>
+                <td>@item.ProcessedDate.AsDate(true)</td>
+                <td>@item.ErrorSendDateTime.AsDate(true)</td>
+                <td>@item.ErrorType.GetEnumName()</td>
+                <td>
+                    @Html.Bootstrap().Button().Style(ButtonStyle.Primary).Class("btn-block btn-xs").TriggerModal("DetailsModal").HtmlAttributes(new {href = Url.Action("ShowDetails", "Import", new {id = @item.Id})}).Text("Details")
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.Description))
+                    {
+                        @Html.Bootstrap().Button().Style(ButtonStyle.Primary).Class("btn-block btn-xs").TriggerModal("DescriptionModal").HtmlAttributes(new {href = Url.Action("ShowDescription", "Import", new {id = @item.Id})}).Text("Description")
+                    }
+                </td>
+                <td>
+                    @if (item.ImportId.HasValue)
+                    {
+                        <a target="_blank" class="btn btn-block btn-xs btn-default" href="@($"{item.SystemUrl}/Import/Download/{item.ImportId}")">File</a>
+                    }
+                </td>
+                <td>
+                    @if (item.ErrorLevel != ErrorLevel.None && !item.IsCleared)
+                    {
+                        <a href="#" class="btn btn-block btn-danger btn-xs btn-set-status" data-status="@ErrorStatus.CLEAR" data-id="@item.Id">Clear</a>
+                    }
+                    else if (item.ErrorLevel != ErrorLevel.None)
+                    {
+                        <a href="#" class="btn btn-block btn-success btn-xs btn-set-status" data-status="@ErrorStatus.ERROR" data-id="@item.Id">Set error</a>
+                    }
+                </td>
+                <td></td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td class="text-center" colspan="10">No records found</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div style="padding: 10px;">
+    @Html.PagedListPager(Model, page => Url.Action("Files", new { page }))
+</div>

@@ -1,0 +1,15 @@
+﻿@model String
+@{
+    var modal = Html.Bootstrap().Misc().GetBuilderFor(new Modal().Closeable().Remote(@Url.Action("ShowDescription", "Import")).Id("DescriptionModal"));
+}
+
+
+@modal.Header($"Description of error")
+@using (modal.BeginBody())
+{
+   @Html.Raw(Model)
+}
+@using (modal.BeginFooter())
+{
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+}

@@ -1,0 +1,43 @@
+﻿@using FIMMonitoring.Domain.Enum
+@model List<ImportSourceViewModel>
+
+<table class="table table-bordered">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            var css = item.Disabled ? "carrier-disabled" : "";
+            <tr class="@css">
+                <td style="width: 300px">
+                    @if (!item.Disabled)
+                    {
+                        <span class="glyphicon glyphicon-one-fine-dot text-success"></span>
+                    }
+                    @Html.ActionLink(@item.Name, "Files", "Import", new {item.CarrierId, item.CustomerId, SelectedSources = item.SourceId}, new {})
+                </td>
+                <td>
+                    <a href="@Url.Action("Files", "Import", new {item.CarrierId, ErrorLevels = ErrorLevel.None, SelectedSources = item.SourceId, item.CustomerId })">
+                        <span class="label label-success">Correct: @item.CountOk</span>
+                    </a>
+
+
+
+                    @if (item.CountWarnings + item.CountWarningsCleared > 0)
+                    {
+                        <a href="@Url.Action("Files", "Import", new {item.CarrierId, ErrorLevels = ErrorLevel.Warning, SelectedSources = item.SourceId, item.CustomerId })">
+                            <span class="label label-warning">Warnings: @item.CountWarningsString</span>
+                        </a>
+
+                    }
+                    @if (item.CountErrors + item.CountErrorsCleared > 0)
+                    {
+                    <a href="@Url.Action("Files", "Import", new {item.CarrierId, ErrorLevels = ErrorLevel.Critical, SelectedSources = item.SourceId, item.CustomerId })">
+                        <span class="label label-danger">Errors: @item.CountErrorsString</span>
+                    </a>
+
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

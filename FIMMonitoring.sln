@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.Web", "FIMMonitoring.Web\FIMMonitoring.Web.csproj", "{353755A9-DE8A-4F90-9979-195E5B71A1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.Domain", "FIMMonitoring.Domain\FIMMonitoring.Domain.csproj", "{D856ACE9-C457-4F2F-8EB3-44DB9741D207}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.Service", "FIMMonitoring.Service\FIMMonitoring.Service.csproj", "{DAAEE47F-325C-4209-97DC-7CBB40878D72}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525} = {8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.Common", "FIMMonitoring.Common\FIMMonitoring.Common.csproj", "{340CC696-3A6C-42B2-B79B-BC39097A0619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.WebService", "FIMMonitoring.WebService\FIMMonitoring.WebService.csproj", "{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIMMonitoring.MainService", "FIMMonitoring.MainService\FIMMonitoring.MainService.csproj", "{DFA613CE-44A8-40C7-AC92-031463EB0C74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{353755A9-DE8A-4F90-9979-195E5B71A1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353755A9-DE8A-4F90-9979-195E5B71A1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353755A9-DE8A-4F90-9979-195E5B71A1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353755A9-DE8A-4F90-9979-195E5B71A1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D856ACE9-C457-4F2F-8EB3-44DB9741D207}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D856ACE9-C457-4F2F-8EB3-44DB9741D207}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D856ACE9-C457-4F2F-8EB3-44DB9741D207}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D856ACE9-C457-4F2F-8EB3-44DB9741D207}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAAEE47F-325C-4209-97DC-7CBB40878D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAAEE47F-325C-4209-97DC-7CBB40878D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAAEE47F-325C-4209-97DC-7CBB40878D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAAEE47F-325C-4209-97DC-7CBB40878D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{340CC696-3A6C-42B2-B79B-BC39097A0619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{340CC696-3A6C-42B2-B79B-BC39097A0619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{340CC696-3A6C-42B2-B79B-BC39097A0619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{340CC696-3A6C-42B2-B79B-BC39097A0619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBE0080-F994-4AB3-AEB4-C29AFF2AF525}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFA613CE-44A8-40C7-AC92-031463EB0C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFA613CE-44A8-40C7-AC92-031463EB0C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFA613CE-44A8-40C7-AC92-031463EB0C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFA613CE-44A8-40C7-AC92-031463EB0C74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,51 @@
+﻿@model ListImportsViewModel
+@{
+    ViewBag.Title = "Customers review";
+}
+
+
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Import")"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Customers</li>
+</ol>
+
+
+<div class="col-lg-12 ">
+    <div class="system-tabs">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#all_systems" data-toggle="tab">All systems</a>
+            </li>
+            @foreach (var system in Model.Systems)
+            {
+                <li>
+                    <a href="#system_@system.Id" data-toggle="tab">@system.Name</a>
+                </li>
+            }
+        </ul>
+
+        <div class="tab-content list-customers">
+            <div class="tab-pane active" id="all_systems">
+                @foreach (var customer in Model.Customers)
+                {
+
+                    @Html.Partial("_Customer", customer)
+                }
+            </div>
+
+            @foreach (var system in Model.Systems)
+            {
+                <div class="tab-pane" id="system_@system.Id">
+                    @foreach (var item in system.Customers)
+                    {
+                        @Html.Partial("_Customer", item)
+                    }
+                </div>
+            }
+        </div>
+
+
+        <div class="clearfix"></div>
+    </div>
+
+</div>

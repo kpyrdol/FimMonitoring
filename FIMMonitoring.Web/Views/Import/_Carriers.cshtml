@@ -1,0 +1,23 @@
+﻿@model List<CarrierDetailsViewModel>
+
+@{
+    var cssClass = "";
+}
+
+@foreach (var item in Model)
+{
+
+<div class="box box-@item.GetCssClass() box-solid ">
+        <div class="box-header with-border">
+            <h3 class="box-title">@item.Name</h3>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="box-body">
+            @Html.Partial("_Sources", item.Sources)
+        </div>
+    </div>
+}

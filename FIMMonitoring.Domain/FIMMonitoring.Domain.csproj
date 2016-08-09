@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D856ACE9-C457-4F2F-8EB3-44DB9741D207}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FIMMonitoring.Domain</RootNamespace>
+    <AssemblyName>FIMMonitoring.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.5.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.0.5\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Consts\Alerts.cs" />
+    <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\Charge.cs" />
+    <Compile Include="Entities\FileCheck.cs" />
+    <Compile Include="Entities\FimCarrier.cs" />
+    <Compile Include="Entities\FimCustomerCarrier.cs" />
+    <Compile Include="Entities\FimImportSource.cs" />
+    <Compile Include="Entities\FimSystem.cs" />
+    <Compile Include="Entities\ForeignEntitty.cs" />
+    <Compile Include="Entities\ImportError.cs" />
+    <Compile Include="Entities\ServiceImportError.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Blob.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Carrier.cs" />
+    <Compile Include="Entities\SoftLogsEntities\CarrierMapping.cs" />
+    <Compile Include="Entities\FimCustomer.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Invoice.cs" />
+    <Compile Include="Entities\SoftLogsEntities\SoftLogsInstance.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Customer.cs" />
+    <Compile Include="Entities\SoftLogsEntities\CustomerCarrier.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Import.cs" />
+    <Compile Include="Entities\SoftLogsEntities\ImportSource.cs" />
+    <Compile Include="Entities\SoftLogsEntities\MappingType.cs" />
+    <Compile Include="Entities\SoftLogsEntities\PostprocessingStep.cs" />
+    <Compile Include="Entities\SoftLogsEntities\TplClient.cs" />
+    <Compile Include="Entities\SoftLogsEntities\UploadedReport.cs" />
+    <Compile Include="Entities\SoftLogsEntities\UserAssignment.cs" />
+    <Compile Include="Entities\SoftLogsEntities\Waybill.cs" />
+    <Compile Include="Enum\CommunicationProtocols.cs" />
+    <Compile Include="Enum\CustomerType.cs" />
+    <Compile Include="Enum\ErrorLevel.cs" />
+    <Compile Include="Enum\ErrorSource.cs" />
+    <Compile Include="Enum\ErrorStatus.cs" />
+    <Compile Include="Enum\ErrorType.cs" />
+    <Compile Include="Enum\ImportDataType.cs" />
+    <Compile Include="Enum\ValidationModes.cs" />
+    <Compile Include="FIMContext.cs" />
+    <Compile Include="Migrations\201606090636591_Init.cs" />
+    <Compile Include="Migrations\201606090636591_Init.Designer.cs">
+      <DependentUpon>201606090636591_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606150703297_ImportErrorsMig.cs" />
+    <Compile Include="Migrations\201606150703297_ImportErrorsMig.Designer.cs">
+      <DependentUpon>201606150703297_ImportErrorsMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606160921434_SourceNameMig.cs" />
+    <Compile Include="Migrations\201606160921434_SourceNameMig.Designer.cs">
+      <DependentUpon>201606160921434_SourceNameMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606231036010_FileCheckMig.cs" />
+    <Compile Include="Migrations\201606231036010_FileCheckMig.Designer.cs">
+      <DependentUpon>201606231036010_FileCheckMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607050947419_FileImportsMig.cs" />
+    <Compile Include="Migrations\201607050947419_FileImportsMig.Designer.cs">
+      <DependentUpon>201607050947419_FileImportsMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607130929332_ImportChangesMig.cs" />
+    <Compile Include="Migrations\201607130929332_ImportChangesMig.Designer.cs">
+      <DependentUpon>201607130929332_ImportChangesMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repositories\AdvBaseRepository.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\FileCheckRepository.cs" />
+    <Compile Include="Repositories\ImportErrorRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IFileCheckRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IImportErrorRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IImportRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ImportRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IRepository.cs" />
+    <Compile Include="Repositories\ReportRepository.cs" />
+    <Compile Include="SoftLogsContext.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\ErrorDetailsViewModel.cs" />
+    <Compile Include="ViewModels\FilesListViewModel.cs" />
+    <Compile Include="ViewModels\ListImportsViewModel.cs" />
+    <Compile Include="ViewModels\WCF\ErrorPack.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201606090636591_Init.resx">
+      <DependentUpon>201606090636591_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606150703297_ImportErrorsMig.resx">
+      <DependentUpon>201606150703297_ImportErrorsMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606160921434_SourceNameMig.resx">
+      <DependentUpon>201606160921434_SourceNameMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606231036010_FileCheckMig.resx">
+      <DependentUpon>201606231036010_FileCheckMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607050947419_FileImportsMig.resx">
+      <DependentUpon>201607050947419_FileImportsMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607130929332_ImportChangesMig.resx">
+      <DependentUpon>201607130929332_ImportChangesMig.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FIMMonitoring.Common\FIMMonitoring.Common.csproj">
+      <Project>{340cc696-3a6c-42b2-b79b-bc39097a0619}</Project>
+      <Name>FIMMonitoring.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

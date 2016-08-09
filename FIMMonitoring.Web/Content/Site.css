@@ -1,0 +1,133 @@
+﻿.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+    height: 65px;
+}
+
+p.no-margin {
+    margin: 0;
+}
+
+.table-carriers th {
+    width: 150px;
+}
+
+.list-customers .box {
+    min-height: 250px;
+}
+
+.list-customers .box-body {
+    min-height: 270px;
+}
+
+.import-sources {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.import-sources .label {
+    cursor: pointer;
+}
+
+.import-source-box:not(:first-of-type) {
+    margin-left: 10px;
+}
+
+.import-source-box {
+    padding: 7px;
+    border: 1px solid slategrey;
+}
+
+
+.label.error-level[data-state="off"]{
+    background-color: #d2d6de !important 
+}
+
+.big-modal .modal-dialog {
+    width: 1000px;
+}
+
+.system-tabs {
+    background: #fff;
+}
+
+.system-tabs ul {
+    margin: 0;
+}
+
+.system-tabs>.nav-tabs>li.active {
+    border-top-color: #3c8dbc;
+}
+
+.system-tabs>.nav-tabs>li {
+    border-top: 3px solid transparent;
+    margin-bottom: -2px;
+    margin-right: 5px;
+}
+
+.system-tabs>.nav-tabs>li:first-of-type.active>a {
+    border-left-color: transparent;
+}
+
+.system-tabs>.nav-tabs>li.active>a {
+    border-top-color: transparent;
+    border-left-color: #f4f4f4;
+    border-right-color: #f4f4f4;
+}
+
+.system-tabs>.nav-tabs>li.active>a, .system-tabs>.nav-tabs>li.active:hover>a {
+    background-color: #fff;
+    color: black;
+}
+
+.system-tabs>.nav-tabs>li>a, .system-tabs>.nav-tabs>li>a:hover {
+    background: transparent;
+    margin: 0;
+}
+
+.system-tabs>.nav-tabs>li>a:hover {
+    border: none;
+}
+
+.system-tabs>.tab-content {
+    background: #fff;
+    padding-top: 10px;
+    min-height: 400px;
+}
+
+#files-table table tr {
+    background-color: black;
+    color: white;
+}
+
+#files-table thead th {
+    color: white;
+}
+
+#files-table tbody tr.text-warning {
+    color: #f39c12 !important;
+}
+
+#files-table tbody tr.text-critical {
+    color: #dd4b39 !important;
+}
+
+#files-table tbody tr.text-grey {
+    color: grey !important;
+}
+
+.glyphicon.glyphicon-one-fine-dot:before {
+    content: "\25cf";
+    font-size: 1.5em;
+    line-height: 0.1;
+}
+
+.carrier-disabled span.label, .source-disabled span.label{
+    background-color: #777 !important;
+}
+
+.alerts {
+    min-height: 60px;
+}
+
+.alerts .alert {
+    margin-bottom: 0px;
+}

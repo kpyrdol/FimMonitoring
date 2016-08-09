@@ -1,0 +1,61 @@
+﻿@using FIMMonitoring.Domain.Enum
+@model CustomerImportViewModel
+
+@{
+    var icon = Model.IsValid ? "up" : "down";
+}
+
+
+<div class="col-lg-4">
+
+    <div class="box box-@Model.GetCssClass() box-solid">
+        <div class="box-header with-border">
+            <h3 class="box-title"><i class="fa fa-thumbs-o-@icon"></i><text>&nbsp;</text>@Html.Bootstrap().ActionLink(@Model.CustomerName, "Customer").RouteValues(new { id = Model.CustomerId })</h3>
+        </div>
+        <div class="box-body" style="@Model.SystemCss">
+            <table class="table table-carriers">
+                <tbody>
+                    @foreach (var item in Model.Carriers)
+                    {
+                        var css = item.Disabled ? "carrier-disabled" : "";
+                        <tr class="@css">
+                            <th style="width: 150px;">
+                                @if (!@item.Disabled)
+                                {
+                                    <span class="glyphicon glyphicon-one-fine-dot text-success"></span>
+                                }
+                                @Html.ActionLink(@item.Name, "Files", "Import", new {item.CarrierId, Model.CustomerId}, new {})
+                            </th>
+                            <td style="padding-top: 10px;">
+
+                                @if (item.CountErrors + item.CountErrorsCleared > 0)
+                                {
+                                    <a href="@Url.Action("Files", "Import", new {item.CarrierId, ErrorLevels = ErrorLevel.Critical, Model.CustomerId })">
+                                        <span class="label label-danger">Errors: @item.CountErrorsString</span>
+                                    </a>
+                                }
+                                @if (item.CountWarnings + item.CountWarningsCleared > 0)
+                                {
+
+                                    <a href="@Url.Action("Files", "Import", new { item.CarrierId, ErrorLevels = ErrorLevel.Warning, Model.CustomerId })">
+                                        <span class="label label-warning">Warnings: @item.CountWarningsString</span>
+                                    </a>
+                                }
+
+
+                                <a href="@Url.Action("Files", "Import", new { item.CarrierId, ErrorLevels = ErrorLevel.None, Model.CustomerId })">
+                                    <span class="label label-success">Correct: @item.CountOk</span>
+                                </a>
+
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @*<div class="box-footer text-center">
+                @Html.Bootstrap().ActionLink("Details", "Customer").RouteValues(new { id = Model.CustomerId }).HtmlAttributes(new { @class = "btn btn-primary", style = "width: 200px; " }).AppendIcon("fa fa-info-circle")
+            </div>*@
+    </div>
+</div>

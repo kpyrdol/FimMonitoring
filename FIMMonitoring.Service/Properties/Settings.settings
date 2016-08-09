@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="FIMMonitoring.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WorkIntervalInMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MailFrom" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fim@softlogs.pl</Value>
+    </Setting>
+    <Setting Name="MailFromDisplayName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FIM Import service</Value>
+    </Setting>
+    <Setting Name="MailFromPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Password1</Value>
+    </Setting>
+    <Setting Name="MailHost" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.zenbox.pl</Value>
+    </Setting>
+    <Setting Name="MailPort" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="MailSsl" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MailAdmin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">krzysztof.pyrdol@ec2.pl</Value>
+    </Setting>
+    <Setting Name="AppUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://softlogs.eu/</Value>
+    </Setting>
+    <Setting Name="MailTo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">kpyrdol@gmail.com</Value>
+    </Setting>
+    <Setting Name="MailToCC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LogDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Logs\SoftLogs</Value>
+    </Setting>
+    <Setting Name="SystemId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

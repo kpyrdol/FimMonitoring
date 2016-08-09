@@ -1,0 +1,56 @@
+﻿@model FIMMonitoring.Domain.ViewModels.ErrorDetailsViewModel
+@{
+    var modal = Html.Bootstrap().Misc().GetBuilderFor(new Modal().Closeable().Remote(@Url.Action("ShowDetails", "Import")).Id("DetailsModal"));
+}
+
+
+@modal.Header($"Details for source: <strong>{Model.SourceName}</strong>")
+@using (modal.BeginBody())
+{
+    <table class="table table-hover table-bordered table-striped">
+        <tbody>
+        <tr>
+            <th>Processed data</th>
+            <td>@Model.ProcessedDate.AsDate(true)</td>
+        </tr>
+        <tr>
+            <th>Is downloaded?</th>
+            <th>@Html.TrueFalseLabel(Model.IsDownloaded)</th>
+        </tr>
+        <tr>
+            <th>Is Parsed?</th>
+            <th>@Html.TrueFalseLabel(Model.IsParsed)</th>
+        </tr>
+        <tr>
+            <th>Is validated?</th>
+            <th>
+                @Html.TrueFalseLabel(Model.IsValidated)
+                @if (!Model.IsValidated && Model.ImportId.HasValue)
+                {
+                    <a target="_blank" class="btn btn-xs btn-primary" href="@($"{Model.SystemUrl}/Import/DownloadValidation/{Model.ImportId}")">diff</a>
+                }
+            </th>
+        </tr>
+        <tr>
+            <th>Is manually cleared?</th>
+            <th>@Html.TrueFalseLabel(Model.IsCleared)</th>
+        </tr>
+        <tr>
+            <th>Error date</th>
+            <td>@Model.ErorrDate.AsDate(true)</td>
+        </tr>
+        <tr>
+            <th>Error sent date</th>
+            <td>@Model.SendErorrDate.AsDate(true)</td>
+        </tr>
+        <tr>
+            <th>Error level</th>
+            <td>@Model.ErrorLevel.ToLabel()</td>
+        </tr>
+            <tr>
+                <th>Error Type</th>
+                <td>@Model.ErrorType.GetEnumName()</td>
+            </tr>
+        </tbody>
+    </table>
+}

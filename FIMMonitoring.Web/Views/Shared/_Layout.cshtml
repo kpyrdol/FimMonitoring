@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIM Monitoring - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+        var baseUrl = "@Html.GetAppUrl()";
+        var serverUrl = "@Html.GetServerUrl()";
+    </script>
+</head>
+
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+<header class="main-header">
+
+    <a href="@Url.Action("Index", "Import")" class="logo">
+        <span class="logo-lg"><b>FIM</b> Monitoring</span>
+    </a>
+
+
+    @Html.Partial("_LoginPartial")
+</header>
+
+
+<aside class="main-sidebar">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="header">Customers</li>
+                <li class="@HtmlExtensions.GetIsLinkActive("", "Import", ViewContext)"><a href="@Url.Action("Index", "Import")"><i class="fa fa-dashboard"></i> <span>Status</span></a></li>
+            </ul>
+            <ul class="sidebar-menu">
+                <li class="header">Account</li>
+                <li class="@HtmlExtensions.GetIsLinkActive("Manage", "Account", ViewContext)"><a href="@Url.Action("Manage", "Account")"><i class="fa fa-gears"></i> <span>Change password</span></a></li>
+            </ul>
+        </section>
+    }
+    else
+    {
+        <section class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="header">FIM</li>
+                <li class="@HtmlExtensions.GetIsLinkActive("Login", "Account", ViewContext)"><a href="@Url.Action("Login", "Account")"><i class="fa fa-dashboard"></i> <span>Login</span></a></li>
+            </ul>
+        </section>
+    }
+</aside>
+
+<div class="content-wrapper">
+    <section class="content-header">
+        @*<h1>
+            @ViewBag.Title
+        </h1>*@
+        @*<ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>*@
+    </section>
+
+    <section class="content">
+        @Html.Partial("_alerts")
+
+        @RenderBody()
+    </section>
+</div>
+
+<footer class="main-footer">
+    <div class="pull-right hidden-xs">
+        
+    </div>
+    <strong>Copyright &copy; @DateTime.Now.Year <a href="#">FIM Monitoring</a>.</strong> All rights reserved.
+</footer>
+
+
+
+
+</div>
+<script type="text/javascript">
+    window.paceOptions = {
+        document: false,
+        ajax: false,
+        eventLag: false,
+        startOnPageLoad: false
+    };
+</script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+
+</body>
+
+
+
+
+
+
+</html>

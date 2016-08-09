@@ -1,0 +1,35 @@
+﻿@using FIMMonitoring.Domain.Enum
+@model FilesListViewModel
+
+
+<div class="box box-success">
+    <div class="box-body">
+        <div class="import-sources">
+            @if (Model.ImportSources.Any())
+            {
+                foreach (var importSource in Model.ImportSources)
+                {
+                    var state = importSource.Checked ? "on" : "off";
+                    var state2 = importSource.Enabled ? "on" : "off";
+                    <div class="col-lg-3">
+                        <div class="box box-primary box-solid">
+                            <div class="box-header">
+                                <strong>@importSource.Name</strong>
+                                <div class="pull-right">
+                                    @Html.CheckBoxFor(e => @importSource.Checked, new { data_on_text = "Show", data_off_text = "Hide", data_id = importSource.SourceId, data_state = state, @class = "import-source" })
+                                    @Html.CheckBoxFor(e => @importSource.Enabled, new { data_on_text = "On", data_off_text = "Off", data_id = importSource.SourceId, data_state = state2 })
+                                </div>
+                            </div>
+                            <div class="box-body">
+                                <span class="label label-success error-level-@importSource.SourceId error-level" data-state="@Model.GetState(@importSource.SourceId, ErrorLevel.None)" data-id="@importSource.SourceId" data-level="@ErrorLevel.None.ToString()">Correct: @importSource.CountOk</span>
+                                <span class="label label-danger  error-level-@importSource.SourceId error-level" data-state="@Model.GetState(@importSource.SourceId,ErrorLevel.Critical)" data-id="@importSource.SourceId" data-level="@ErrorLevel.Critical.ToString()">Errors: @importSource.CountErrorsString</span>
+                                <span class="label label-warning  error-level-@importSource.SourceId error-level" data-state="@Model.GetState(@importSource.SourceId,ErrorLevel.Warning)" data-id="@importSource.SourceId" data-level="@ErrorLevel.Warning.ToString()">Warnings: @importSource.CountWarningsString</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,8 @@
+﻿@model FilesListViewModel
+
+
+@Html.Partial("_Filters", Model)
+
+<div id="files-table">
+    @Html.Partial("_FilesTable", Model.Files)
+</div>

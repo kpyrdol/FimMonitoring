@@ -1,0 +1,54 @@
+﻿@model FilesListViewModel
+
+@{
+    ViewBag.Title = "Error list";
+}
+
+
+<ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Import")"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="@Url.Action("Index", "Import")">@Model.SystemName</a></li>
+    <li><a href="@Url.Action("Index", "Import")">Customers</a></li>
+    <li class=""><a href="@Url.Action("Customer", "Import", new { id = Model.CustomerId })">@Model.CustomerName</a></li>
+    <li class="active">Import files</li>
+</ol>
+
+@using (var form = Html.Bootstrap().Begin(new Form().HtmlAttributes( new { action = @Url.Action("Files", "Import") }).FormMethod(FormMethod.Post).Id("MainForm").Data(new { defaulturl = @Url.Action("Files", "Import") })))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(e=>e.CarrierId)
+    @Html.HiddenFor(e=>e.CustomerId)
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title"><strong>@Model.CustomerName</strong> -> @Model.CarrierName @Html.Bootstrap().SubmitButton().Text("Refresh").PrependIcon("glyphicon glyphicon-refresh").Style(ButtonStyle.Success).Class("btn-xs")</h3>
+        </div>
+        <div class="box-body table-responsive no-padding" id="files">
+            @Html.Partial("_Filters", Model)
+
+            <div id="files-table">
+                @Html.Partial("_FilesTable", Model.Files)
+            </div>
+        </div>
+    </div>
+}
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("DetailsModal")))
+{
+}
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("DescriptionModal").Class("big-modal")))
+{
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/files")
+    @Scripts.Render("~/bundles/bswitch")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Files.Index();
+        });
+    </script>
+}
+@Styles.Render("~/Content/bswitch")

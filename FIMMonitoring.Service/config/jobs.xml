@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<job-scheduling-data xmlns="http://quartznet.sourceforge.net/JobSchedulingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0">
+
+  <schedule>
+
+    <job>
+      <name>importcheckerjob</name>
+      <group>notifications</group>
+      <description>Check imports for errors</description>
+      <job-type>FIMMonitoring.Service.Jobs.ImportCheckerJob, FIMMonitoring.Service</job-type>
+    </job>
+
+    <job>
+      <name>logfilescheckerjob</name>
+      <group>logfileschecker</group>
+      <description>Parse log4net files</description>
+      <job-type>FIMMonitoring.Service.Jobs.LogFilesCheckerJob, FIMMonitoring.Service</job-type>
+    </job>
+
+    <job>
+      <name>sendErrorsJob</name>
+      <group>sendErrors</group>
+      <description>Send errors to FIM monitoring</description>
+      <job-type>FIMMonitoring.Service.Jobs.SendErrorsJob, FIMMonitoring.Service</job-type>
+    </job>
+
+    
+    <!-- Start every 20 seconds -->
+    <trigger>
+      <simple>
+        <name>ImportCheckerTrigger</name>
+        <group>notifications</group>
+        <description>Trigger for check imports for errors</description>
+        <job-name>importcheckerjob</job-name>
+        <job-group>notifications</job-group>
+        <start-time>1982-06-28T18:15:00.0Z</start-time>
+        <end-time>2020-05-04T18:13:51.0Z</end-time>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>100</repeat-count>
+        <repeat-interval>20000</repeat-interval>
+      </simple>
+    </trigger>
+
+    <trigger>
+      <simple>
+        <name>SendErrorsTrigger</name>
+        <group>sendErrors</group>
+        <description>Trigger for send errors</description>
+        <job-name>sendErrorsJob</job-name>
+        <job-group>sendErrors</job-group>
+        <start-time>1982-06-28T18:15:00.0Z</start-time>
+        <end-time>2020-05-04T18:13:51.0Z</end-time>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>100</repeat-count>
+        <repeat-interval>20000</repeat-interval>
+      </simple>
+    </trigger>
+
+    <trigger>
+      <simple>
+        <name>LogFilesCheckerTrigger</name>
+        <group>logfileschecker</group>
+        <description>Trigger for parse log4net files</description>
+        <job-name>logfilescheckerjob</job-name>
+        <job-group>logfileschecker</job-group>
+        <start-time>1982-06-28T18:15:00.0Z</start-time>
+        <end-time>2020-05-04T18:13:51.0Z</end-time>
+        <misfire-instruction>SmartPolicy</misfire-instruction>
+        <repeat-count>100</repeat-count>
+        <repeat-interval>20000</repeat-interval>
+      </simple>
+    </trigger>
+    
+    <!-- Cron format: http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger -->
+    <!--<trigger>
+      <cron>
+        <name>emailCron</name>
+        <job-name>emailnotification</job-name>
+        <job-group>notifications</job-group>
+        <cron-expression>0 0/5 * * * ?</cron-expression>
+      </cron>
+    </trigger>-->
+  </schedule>
+</job-scheduling-data>
